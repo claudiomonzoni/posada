@@ -1,0 +1,15 @@
+---
+// Style Imports
+import '../styles/style.scss';
+// Component Imports
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Slider from '../components/Slider.astro';
+
+let titulo = "Estamos en el inshe Home"
+---
+<BaseLayout eltitulo={titulo}>
+
+	<h1>{titulo}</h1>
+	<Slider />
+
+</BaseLayout>

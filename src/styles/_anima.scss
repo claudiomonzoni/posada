@@ -1,0 +1,36 @@
+.anima {
+    -webkit-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+  }
+  
+  // animacion menu
+  @keyframes menuAbierto {
+   from{
+      height:85px;
+    }
+    to {
+      height: 100vh;
+    }
+  }
+  @keyframes menuCerrado {
+    from {
+      height: 100vh;
+    }
+    to {
+      height: 85px;
+    }
+  }
+  
+  .menuFullAbierto {
+    animation: menuAbierto 1.2s ease forwards;
+    ul {
+      display: block;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+  }
+  
+  .desanimaMenu {
+    animation: menuCerrado 1s ease backwards ;
+  }
