@@ -5,11 +5,12 @@ import '../styles/style.scss';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Slider from '../components/Slider.astro';
 
-let titulo = "Estamos en el inshe Home"
+let titulo = "Esto es Home"
 ---
 <BaseLayout eltitulo={titulo}>
-
+<main >
+  <Slider />
 	<h1>{titulo}</h1>
-	<Slider />
 
+</main>
 </BaseLayout>

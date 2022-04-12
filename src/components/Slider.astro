@@ -3,7 +3,7 @@
 import '../styles/swiper-bundle.min.css';
 ---
 
-<script>
+<script hoist type="module">
 import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
 
   const swiper = new Swiper('.swiper', {
@@ -16,9 +16,13 @@ import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
     },
     // ...
   });
-
 </script>
-
+<style>
+.swiper{
+  background-color: rgb(108, 109, 110);
+  height: 100vh;
+}
+</style>
 <div class="swiper">
   <!-- Additional required wrapper -->
   <div class="swiper-wrapper">
