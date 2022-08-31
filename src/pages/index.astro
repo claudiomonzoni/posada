@@ -3,14 +3,14 @@
 import '../styles/style.scss';
 // Component Imports
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Slider from '../components/Slider.astro';
+import Hero from '../components/Hero.astro';
 
 let titulo = "Esto es Home"
+const descripcion ="Esta es la descripcion"
 ---
-<BaseLayout eltitulo={titulo}>
+<BaseLayout eltitulo={titulo} descripcion={descripcion}>
 <main >
-  <Slider />
-	<h1>{titulo}</h1>
+<Hero />
 
 </main>
 </BaseLayout>

@@ -1,197 +1,72 @@
-@use 'mediaQ' as *;
-@use 'color' as *;
+@use "mediaQ" as *;
+@use "color" as *;
 // Boton toogle
-.menu-toggle {
-  position: fixed;
-
-  display: none;
-  @include cel {
-    display: block;
-    z-index: 99000;
-  }
-  right: 4vh;
-  top: 4.6vh;
-  z-index: 520;
-  width: 30px;
-  height: 22px;
-  background: transparent;
-  border-top: 4px solid;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
-  border-bottom: 4px solid;
-  color: $gris;
-  font-size: 0;
-  -webkit-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-.menu-toggle:before,
-.menu-toggle:after {
-  content: "";
-  display: block;
-  width: 100%;
-  height: 4px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: currentColor;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  -webkit-transition: -webkit-transform 0.25s ease-in-out;
-  transition: -webkit-transform 0.25s ease-in-out;
-  -o-transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+.btn {
+  background-color: $naranja;
+  color: #fff;
+  padding: 0.6rem 2rem;
+  display: inline-block;
+  border-radius: 0.5rem;
 }
 
-button.is-active {
-  border-color: transparent;
-  border-left: none;
-}
-button.is-active:before {
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-  -ms-transform: translate(-50%, -50%) rotate(45deg);
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-button.is-active:after {
-  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-  -ms-transform: translate(-50%, -50%) rotate(-45deg);
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-button {
-  border: none;
-  cursor: pointer;
-  outline: none;
-  vertical-align: middle;
-}
-
-// menu de navegación
-// menu de navegación
-nav {
-  // mix-blend-mode:saturation;
-  @include cel {
-    background-color: rgb(226, 226, 226);
-    a {
-      color: $azulOscuro;
-    }
-  }
+// hero
+#hero {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  z-index: 99999;
-  a {
-    color: #fff;
-    letter-spacing: 0.2rem;
-    font-size: 0.8rem;
+  height: 100vh;
+  flex-wrap: wrap;
+  #izq,
+  #der {
+    flex: 1;
+    @include cel {
+      flex: 0 0 100%;
+    }
   }
-  .logo {
-    padding: 1em;
-    img {
-      width: 150px;
-      height: auto;
-      margin-left: 6em;
-      @include tableta_land {
-        margin-left: 2em;
-      }
+
+  #izq {
+    background: url(/assets/hero-palma.png) no-repeat $beige;
+    background-position: right -150px;
+    background-size: 45%;
+    @include hd {
+      background-size: 30%;
+    }
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      color: $azul;
+      font-size: clamp(3vw, 4vw, 10vw);
+      line-height: 1em;
+      margin: 2rem 0;
       @include cel {
-        margin-left: 0em;
+        font-size: 2.2rem;
+      }
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+  #der{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    #fachada{
+      background: url(/assets/Fachada-posada-el-palmar-hotel-zihuatanejo.jpg) no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    #refuerzo{
+      background: url(/assets/fondo-azul.jpg) no-repeat;
+      .bandeja{
+        width: 100%;
+        margin-top: -5em;
+        text-align: center;
       }
     }
   }
-  ul {
-    padding: 0 4em;
-    display: flex;
-    li {
-      padding: 0 2em;
-      .activo {
-        color: $azulOscuro;
-      }
-    }
-  }
-
-  @include cel {
-    flex-wrap: wrap;
-    align-items: flex-start;
-    height: 85px;
-    .logo {
-      align-self: flex-start;
-    }
-    ul:nth-child(3n) {
-      li {
-        padding: 1.5em 0;
-      }
-    }
-
-    ul:nth-child(2n) {
-      display: flex;
-      justify-content: center;
-    }
-
-    ul {
-      flex: 1 0 100%;
-      visibility: hidden;
-      display: none;
-      padding: 2em;
-    }
-  }
-  transition: all 300ms ease-in-out;
-}
-
-.scroll-down {
-  transform: translate3d(0, -100%, 0);
-}
-
-.scroll-up {
-  background-color: $gris;
-  a {
-    color: $azulOscuro;
-  }
-  .activo {
-    font-weight: bold;
+  #logo {
+    width: clamp(15rem, 20vw, 20rem);
   }
 }
-
-// agregamos padding a todo lo que este debajo de nav
-nav + main {
-  padding-top: 80px;
+.bandeja {
+  width: 70%;
 }
-
-@include cel {
-  nav + main {
-    padding-top: 80px;
-  }
-}
-
-#social {
-  svg {
-    max-width: 30px;
-    fill: $azulOscuro;
-  }
-}
-
-
-// mapa y slider react
-.slider{
-  width: 100%;
-  border: solid;
-}
-.mapa{
-  width: 100%;
-  height: 500px;
-  border: solid;
-}
-// item en slide
-.item{
-  background-color: black;
-  height: 20vh;
-}
-// contenedor general del contenido
-// #conteHome{
-//   margin-top: 5rem;
-//   border: solid #000;
-// }
