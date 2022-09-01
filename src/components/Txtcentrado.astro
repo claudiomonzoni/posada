@@ -1,0 +1,11 @@
+---
+const {text} = Astro.props
+---
+<!-- <script is:inline>
+    alert(text)
+    const eldiv = document.getElementById("txt-centro")
+</script> -->
+<div class="txt-centro">
+   <!-- Uso de <Fragment> es para que parsee tambien el html, en este caso el bold -->
+    <Fragment set:html={text} />
+</div>

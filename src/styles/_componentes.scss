@@ -45,6 +45,9 @@
     p {
       margin-bottom: 2rem;
     }
+    @include cel{
+      padding: 5rem 0;
+    }
   }
   #der{
     display: grid;
@@ -53,18 +56,44 @@
       background: url(/assets/Fachada-posada-el-palmar-hotel-zihuatanejo.jpg) no-repeat;
       background-size: cover;
       background-position: center;
+      @include cel {
+        height: 40vh;
+      }
     }
     #refuerzo{
       background: url(/assets/fondo-azul.jpg) no-repeat;
+      @include cel {
+        height: 34vh;
+      }
       .bandeja{
         width: 100%;
         margin-top: -5em;
         text-align: center;
+        @include cel{
+          margin-top: -2em;
+          img{
+            width: 80%;
+          }
+        }
       }
     }
   }
   #logo {
     width: clamp(15rem, 20vw, 20rem);
+  }
+  position: relative;
+  #coco{
+    position: absolute;
+    top:100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    @include cel{
+      top: 135%;
+      width: 50%;
+    }
+    @include hd{
+      top: 90%;
+    }
   }
 }
 .bandeja {
