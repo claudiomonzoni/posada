@@ -12,8 +12,13 @@
 // hero
 #hero {
   display: flex;
-  height: 100vh;
+  height: 100%;
+  @include hd {
+    height: 100vh;
+  }
   flex-wrap: wrap;
+  position: relative;
+  height: auto;
   #izq,
   #der {
     flex: 1;
@@ -45,33 +50,34 @@
     p {
       margin-bottom: 2rem;
     }
-    @include cel{
+    @include cel {
       padding: 5rem 0;
     }
   }
-  #der{
+  #der {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    #fachada{
-      background: url(/assets/Fachada-posada-el-palmar-hotel-zihuatanejo.jpg) no-repeat;
+    #fachada {
+      background: url(/assets/Fachada-posada-el-palmar-hotel-zihuatanejo.jpg)
+        no-repeat;
       background-size: cover;
       background-position: center;
       @include cel {
         height: 40vh;
       }
     }
-    #refuerzo{
+    #refuerzo {
       background: url(/assets/fondo-azul.jpg) no-repeat;
       @include cel {
         height: 34vh;
       }
-      .bandeja{
+      .bandeja {
         width: 100%;
-        margin-top: -5em;
+        transform: translateY(-5rem);
         text-align: center;
-        @include cel{
+        @include cel {
           margin-top: -2em;
-          img{
+          img {
             width: 80%;
           }
         }
@@ -81,21 +87,122 @@
   #logo {
     width: clamp(15rem, 20vw, 20rem);
   }
-  position: relative;
-  #coco{
+
+  #coco {
     position: absolute;
-    top:100vh;
+    bottom: -9%;
     left: 50%;
     transform: translateX(-50%);
-    @include cel{
-      top: 135%;
+    @include cel {
+      bottom: 0%;
       width: 50%;
-    }
-    @include hd{
-      top: 90%;
     }
   }
 }
 .bandeja {
   width: 70%;
+}
+
+//secciones
+@mixin secciones($der) {
+  width: min(100% - 5rem, 1920px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 10% 1fr 2fr;
+  grid-template-rows: 5% 1fr 5%;
+  @if $der {
+    grid-template-columns: 2fr 1fr 10%;
+    margin-top: 5rem;
+    
+  }
+
+  @include cel {
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  &:before {
+    content: "";
+    background: $beige;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    @include cel {
+      grid-column: 2 / span 1;
+    }
+    @if $der {
+      background: url(/assets/fondo-azul.jpg) no-repeat $azul;
+
+    }
+  }
+  &:after {
+    content: "";
+    background: url(/assets/hoja.png) no-repeat;
+    background-position: 120% 38%;
+    grid-column: 3 / -1;
+    grid-row: 1 / span 2;
+    @include hd {
+      background-position: 100% 38%;
+    }
+    @include cel {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
+      background-position: 100% 140%;
+      background-size: 30%;
+      @if $der {
+        grid-column: 2 / span 1;
+        background-size: 30%;
+        background-position: 0px -20px!important;
+      }
+    }
+    @if $der {
+      background: url(/assets/palma.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0px!important;
+      grid-column: 1 / span 1;
+      grid-row: 1 / span 2;
+    }
+  }
+  img {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    @include cel {
+      grid-column: 1 / -1;
+      grid-row: 1;
+    }
+    @if $der{
+      grid-column: 2;
+      grid-row: 1 / -1;
+    }
+  }
+  .bandeja {
+    grid-column: 3 / -1;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    @include cel {
+      grid-column: 2 / span 1;
+      grid-row: 2;
+    }
+    p {
+      width: 50%;
+      @include cel {
+        width: 70%;
+      }
+    }
+    @if $der{
+      grid-column: 1 / span 1;
+      p{
+        color: #fff
+      }
+    }
+  }
+}
+.izq {
+  @include secciones(false);
+}
+.der {
+  @include secciones(true);
 }

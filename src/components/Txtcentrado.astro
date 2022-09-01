@@ -1,11 +1,33 @@
 ---
-const {text} = Astro.props
+const {text, fondo} = Astro.props
 ---
 <!-- <script is:inline>
     alert(text)
     const eldiv = document.getElementById("txt-centro")
 </script> -->
-<div class="txt-centro">
+<div id="conte"  class={fondo ? "bg" : ""} >
    <!-- Uso de <Fragment> es para que parsee tambien el html, en este caso el bold -->
-    <Fragment set:html={text} />
+    <p class="txt-centro ">
+        <Fragment set:html={text} />
+       
+    </p>
 </div>
+
+<style>
+
+            .bg{
+            background-color: #FDE8DC;
+            }
+ 
+    .txt-centro{
+        width: min(100% - 5rem, 80rem);
+        margin-inline: auto;
+        text-align: center;
+        padding: 10vw 0;
+        @media (max-width:414px){
+            padding: 4rem 0;
+        }
+    }
+
+    
+</style>

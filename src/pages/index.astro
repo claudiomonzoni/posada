@@ -5,17 +5,28 @@ import '../styles/style.scss';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import Txtcentrado from '../components/Txtcentrado.astro';
-
+import Secciones from '../components/Secciones.astro';
+import Cuartos from '../components/Cuartos.astro';
+import Reservaciones from '../components/Reservaciones.astro';
 
 let titulo = "Esto es Home"
 const descripcion ="Esta es la descripcion"
-const bold = "<b>"
-const primertxt = `${bold} Posada del Palmar es un pequeño hotel económico de buena calidad </b> y ambiente familiar. El hotel esta administrado  por una familia que se ocupa directamente del buen funcionamiento y de las relaciones con los huéspedes.
+const primertxt = `<b>Posada del Palmar es un pequeño hotel económico de buena calidad </b> y ambiente familiar. El hotel esta administrado  por una familia que se ocupa directamente del buen funcionamiento y de las relaciones con los huéspedes.
+`
+const segundotxt = `<b>Las habitaciones son amplias e iluminadas</b>; hay cuartos con camas king size, dos matrimoniales o una matrimonial. 
+`
+const tercertxt = `Además incluimos el servicio de <b> Internet y estacionamiento privado </b> para tu comodidad.
+ 
 `
 ---
 <BaseLayout eltitulo={titulo} descripcion={descripcion}>
 <main >
 <Hero />
-<Txtcentrado text = {primertxt} />
+<Txtcentrado text = {primertxt} fondo = {false}/>
+<Secciones />
+<Txtcentrado text = {segundotxt} fondo = {false} />
+<Cuartos />
+<Txtcentrado text = {tercertxt}  fondo = {true} />
+<Reservaciones />
 </main>
 </BaseLayout>

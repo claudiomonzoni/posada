@@ -1,0 +1,63 @@
+---
+
+---
+
+<div id="cuartos">
+    <div class="bandeja">
+
+        <div class="item">
+            <img src="/assets/cuarto-1-posada-el-palmar-hotel-zihuatanejo.jpg" alt="Cuartos de hotel en zihuatanejo">
+        </div>
+        <div class="item">
+            <img src="/assets/cuarto-2-posada-el-palmar-hotel-zihuatanejo.jpg" alt="Cuartos de hotel en zihuatanejo">
+        </div>
+        <div class="item">
+            <img src="/assets/cuarto-3-posada-el-palmar-hotel-zihuatanejo.jpg" alt="Cuartos de hotel en zihuatanejo">
+        </div>
+        <div class="item">
+            <img src="/assets/cuarto-4-posada-el-palmar-hotel-zihuatanejo.jpg" alt="Cuartos de hotel en zihuatanejo">
+        </div>
+
+    </div>
+</div>
+
+<style lang="scss">
+    #cuartos{
+        background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(253,232,220,1) 50%);
+    }
+    .bandeja{
+        width: min(100% - 5rem, 1920px);
+         margin-inline: auto;
+      display: flex;
+     @media (max-width:414px){
+        flex-wrap: wrap;
+        .item{
+            width: 100%;
+            img{
+                width: 100%!important;
+                height: auto;
+                &:hover{
+            transform: scale(1.1);
+            transform-origin:0%;
+            height: 150%;
+          }
+            }
+        }
+     }
+      .item{
+          height: 35vw;
+          transition: all .2s;
+          img{
+              object-fit: cover;
+              height: 100%;
+              width: auto;
+          }
+          &:hover{
+            transform: scale(1.1);
+            transform-origin: center;
+            width: 90%;
+          }
+      }
+    }
+</style>
