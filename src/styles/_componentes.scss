@@ -206,3 +206,56 @@
 .der {
   @include secciones(true);
 }
+
+#formulario h2{
+  color: $azul;
+  border-bottom: 1px solid $azul;
+  padding: 0 0 1rem 0;
+}
+input, select{
+  background-color: #fff;
+  border: none;
+  padding: .6rem 1rem;
+  font-size: 1.1rem;
+  width: 100%;
+  margin-bottom: .5rem;
+}
+footer{
+  background: $azul;
+  color: #fff;
+  img{
+    position: relative;
+    width: min(300px, 500px);
+    margin: 4rem 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .bandeja{
+    margin-inline: auto;
+    width: min(100% - 5rem, 1920px);
+  }
+  #dir{
+    border-top: 1px solid #fff;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 3rem 0 7rem 0;
+    justify-content: center;
+    
+    @media (max-width:414px){
+      address, .tel{
+        max-width: 100%!important;
+        text-align: center;
+      }
+    }
+
+    address{
+      max-width: 40%;
+      
+      span{
+        font-size: .8rem;
+        font-style: italic;
+      }
+    }
+  }
+}
