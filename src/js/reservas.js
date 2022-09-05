@@ -1,5 +1,10 @@
 import moment from "moment";
-import "moment/locale/es";
+if(window.location.pathname === "/"){
+  import ("moment/locale/es")
+  .then((lang)=>{
+    return lang
+  })
+}
 
 const revisar = document.getElementById("revisar");
 //inputs
@@ -37,12 +42,12 @@ const actualizar = (e) => {
   //comprobar si es cel o pc
   let whats = "";
   if (/Mobile/i.test(ua)) {
-    whats = "https://api.whatsapp.com/send/?phone=&text=";
+    whats = "https://api.whatsapp.com/send/?phone=5217551397152&text=";
   } else {
-    whats = "https://web.whatsapp.com/send/?phone=5217551149568&text=";
+    whats = "https://web.whatsapp.com/send/?phone=5217551397152&text=";
   }
   //obtener las noches
-
+  moment.locale("es");
   const llegadaM = moment(llegada.value).format("dddd D MMMM YYYY");
   const salidaM = moment(salida.value).format("dddd D MMMM YYYY");
 

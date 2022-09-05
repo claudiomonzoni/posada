@@ -233,6 +233,11 @@ footer{
   .bandeja{
     margin-inline: auto;
     width: min(100% - 5rem, 1920px);
+    span{
+      font-size: .8rem;
+      text-align: center;
+      color: #ccc;
+    }
   }
   #dir{
     border-top: 1px solid #fff;
