@@ -1,13 +1,11 @@
 ---
-// import L from "leaflet"
 
 ---
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
 integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
 crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-crossorigin=""></script>
+
+
 
 <div id="reservaciones">
   <div class="bandeja">
@@ -43,7 +41,7 @@ crossorigin=""></script>
       <input
         type="date"
         name="salida"
-        id="salida "
+        id="salida"
         placeholder="Fecha de salida"
       />
       <input
@@ -55,11 +53,12 @@ crossorigin=""></script>
       <input
         type="number"
         name="niños"
-        id="niños"
+        id="ninos"
         placeholder="Numero de niños"
       />
-      <a href="#" class="btn">Reservar</a>
+      <a href="#" class="btn desactivado" id="btncotizar">Reservar</a>
     </div>
+    <div id="revisar"></div>
   </div>
 </div>
 </div>
@@ -109,87 +108,21 @@ background: linear-gradient(180deg, rgba(253,232,220,1) 32%, rgba(17,25,93,1) 32
         }
     }
   }
+  .desactivado {
+  opacity: 0.2;
+  pointer-events: none;
+}
 </style>
-<script is:inline>
-// export class Mapa {
-//   constructor() {
-//     this.mapa = this.inicializarMapa()
-//     this.markers = new L.LayerGroup()
-//   }
-
-//   inicializarMapa() {
-//     // Inicializar y obtener la propiedad del mapa
-//     const map = L.map('mapa',{
-//       scrollWheelZoom:false,
-//       zoomOffset: -1
-//     }).setView([17.639544, -101.557177], 16)
-//     const enlaceMapa = '<a href="http://openstreetmap.org">OpenStreetMap</a>'
-//     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//       attribution: '&copy; ' + enlaceMapa + ' Contributors',
-//       maxZoom: 20,
-//     }).addTo(map)
-
-//     return map
-//   }
-
-//   obtenerDatos() {
-//     const pines = {
-//       resultados: [
-//         {
-//           latitude: '17.639544',
-//           longitude: '-101.557177',
-//           titulo: 'Icza',
-//           calle: 'Avenida Adolfo Lopez Mateos Norte 95 Italia Providencia, Guadalajara, Jalisco 44648',
-//         },
-//       ],
-//     }
-
-//     this.mostrarPines(pines.resultados)
-//   }
-
-//   mostrarPines(datos) {
-//     // limpio marker para mostrar otra busqueda
-//     this.markers.clearLayers()
-
-//     datos.forEach((dato) => {
-//       //destructurig para obtener las prop del obj
-//       const { latitude, longitude, titulo, calle } = dato
-
-//       // crear un globo de info
-//       const globo = L.popup().setContent(`
-//   <h3>${titulo} </h3>
-//   <p> Calle: ${calle}</p>
-//   `)
-//       // objeto de los markers
-//       const elpin = L.icon({
-//         iconUrl:
-//           'https://www.idmtest.com/style/img/ic-marker.svg',
-//         //shadowUrl: "leaf-shadow.png",
-
-//         iconSize: [50, 69], // size of the icon
-//         //shadowSize: [50, 64], // size of the shadow
-//         iconAnchor: [35, 45], // point of the icon which will correspond to marker's location
-//         //shadowAnchor: [4, 62], // the same for the shadow
-//         popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
-//       })
-
-//       //agregar el pin por obj
-//       // corchete porque es array
-//       const marker = new L.marker(
-//         [parseFloat(latitude), parseFloat(longitude)],
-//         { icon: elpin }
-//       ).bindPopup(globo)
-//       //agregamos cada pin al layer del constructor
-//       this.markers.addLayer(marker)
-//     })
-//     this.markers.addTo(this.mapa)
-//   }
-// }
-
-
-//   const mapa = new Mapa();
-//   document.addEventListener("DOMContentLoaded", () => {
-//     mapa.obtenerDatos();
-//   });
+<script src="../js/reservas.js"></script>
+<script>
+import { Mapa } from "../js/mapa";
+  const divmapa = document.getElementById("mapa");
+if (divmapa) {
+  const mapa = new Mapa();
+  document.addEventListener("DOMContentLoaded", () => {
+    mapa.obtenerDatos();
+  });
+}
 
 </script>
+
