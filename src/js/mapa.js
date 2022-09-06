@@ -11,7 +11,7 @@ export class Mapa {
     const map = L.map('mapa',{
       scrollWheelZoom:false,
       zoomOffset: -1
-    }).setView([17.639544, -101.557177], 16)
+    }).setView([17.642541, -101.552695], 16)
     const enlaceMapa = '<a href="http://openstreetmap.org">OpenStreetMap</a>'
     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; ' + enlaceMapa + ' Contributors',
