@@ -12,13 +12,12 @@
 // hero
 #hero {
   display: flex;
-  height: 100%;
-  @include hd {
-    height: 100vh;
-  }
   flex-wrap: wrap;
   position: relative;
   height: auto;
+  @include hd {
+    height: 100vh;
+  }
   #izq,
   #der {
     flex: 1;
@@ -56,12 +55,16 @@
   }
   #der {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 30%;
+    @include cel{
+      grid-template-rows: 1fr 1fr;
+    }
     #fachada {
-      background: url(/assets/Fachada-posada-el-palmar-hotel-zihuatanejo.jpg)
+      background: url(/assets/Fachada-posada-el-palmar-hotel-zihuatanejo.webp)
         no-repeat;
       background-size: cover;
       background-position: center;
+
       @include cel {
         height: 40vh;
       }
@@ -113,7 +116,6 @@
   @if $der {
     grid-template-columns: 2fr 1fr 10%;
     margin-top: 5rem;
-    
   }
 
   @include cel {
@@ -131,7 +133,6 @@
     }
     @if $der {
       background: url(/assets/fondo-azul.jpg) no-repeat $azul;
-
     }
   }
   &:after {
@@ -151,14 +152,14 @@
       @if $der {
         grid-column: 2 / span 1;
         background-size: 30%;
-        background-position: 0px -20px!important;
+        background-position: 0px -20px !important;
       }
     }
     @if $der {
       background: url(/assets/palma.png);
       background-repeat: no-repeat;
       background-size: contain;
-      background-position: 0px!important;
+      background-position: 0px !important;
       grid-column: 1 / span 1;
       grid-row: 1 / span 2;
     }
@@ -170,7 +171,7 @@
       grid-column: 1 / -1;
       grid-row: 1;
     }
-    @if $der{
+    @if $der {
       grid-column: 2;
       grid-row: 1 / -1;
     }
@@ -192,10 +193,10 @@
         width: 70%;
       }
     }
-    @if $der{
+    @if $der {
       grid-column: 1 / span 1;
-      p{
-        color: #fff
+      p {
+        color: #fff;
       }
     }
   }
@@ -207,58 +208,60 @@
   @include secciones(true);
 }
 
-#formulario h2{
+#formulario h2 {
   color: $azul;
   border-bottom: 1px solid $azul;
   padding: 0 0 1rem 0;
 }
-input, select{
+input,
+select {
   background-color: #fff;
   border: none;
-  padding: .6rem 1rem;
+  padding: 0.6rem 1rem;
   font-size: 1.1rem;
   width: 100%;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
-footer{
+footer {
   background: $azul;
   color: #fff;
-  img{
+  img {
     position: relative;
     width: min(300px, 500px);
     margin: 4rem 0;
     left: 50%;
     transform: translateX(-50%);
   }
-  .bandeja{
+  .bandeja {
     margin-inline: auto;
     width: min(100% - 5rem, 1920px);
-    span{
-      font-size: .8rem;
+    span {
+      font-size: 0.8rem;
       text-align: center;
       color: #ccc;
     }
   }
-  #dir{
+  #dir {
     border-top: 1px solid #fff;
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
     padding: 3rem 0 7rem 0;
     justify-content: center;
-    
-    @media (max-width:414px){
-      address, .tel{
-        max-width: 100%!important;
+
+    @media (max-width: 414px) {
+      address,
+      .tel {
+        max-width: 100% !important;
         text-align: center;
       }
     }
 
-    address{
+    address {
       max-width: 40%;
-      
-      span{
-        font-size: .8rem;
+
+      span {
+        font-size: 0.8rem;
         font-style: italic;
       }
     }
